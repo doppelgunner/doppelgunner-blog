@@ -1,5 +1,9 @@
 # doppelgunner-blog
-The source code for my doppelgunner blog
+The source code for my own blog
+
+## Tools (as of now)
+* angular 4
+* visual studio code
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.7.
 
