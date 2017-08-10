@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+.dicon-logo {
+    -webkit-border-radius:50px;
+    -moz-border-radius:50px;
+    border-radius:50px;
+    width:32px;
+    height:32px;
+}
+
+.dicon-anchor {
+    padding: 10px;
+}
+
+.retain-text {
+    white-space: pre-wrap;
+}

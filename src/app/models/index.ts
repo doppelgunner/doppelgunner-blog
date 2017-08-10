@@ -1,0 +1,1 @@
+export { TempText } from './temp/temp-text';

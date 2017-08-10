@@ -1,0 +1,1 @@
+export {TempService} from './temp.service';

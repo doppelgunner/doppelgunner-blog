@@ -17,11 +17,14 @@
       "test": "test.ts",
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
-      "prefix": "app",
+      "prefix": "dg",
       "styles": [
-        "styles.css"
+        "styles.css",
+        "../node_modules/prismjs/themes/prism-okaidia.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/marked/lib/marked.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
