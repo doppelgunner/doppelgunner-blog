@@ -1,6 +1,9 @@
 # doppelgunner-blog
 The source code for my own blog
 
+## Demo
+* link to demo: https://doppelgunner.github.io/doppelgunner-blog/
+
 ## Tools (as of now)
 * angular 4
 * visual studio code
