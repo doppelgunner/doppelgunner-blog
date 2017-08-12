@@ -1,0 +1,56 @@
+<!--
+<md-editor 
+    name="Content" 
+    [(ngModel)]="content" 
+    [height]="'200px'" 
+    [mode]="editor" 
+    [options]="options" 
+    required
+    maxlength="500">
+    </md-editor>
+-->
+
+<ul class="nav nav-tabs">
+  <li class="nav active"><a href="#edit-markdown-edit" data-toggle="tab">Edit</a></li>
+  <li class="nav"><a href="#edit-markdown-preview" data-toggle="tab">Preview</a></li>
+</ul>
+
+<form (ngSubmit)="onSubmit()" #f="ngForm">
+<div class="tab-content">
+  <!-->test views here<-->
+  <div class="tab-pane fade in active" id="edit-markdown-edit">
+    <div class="input-group input-group-lg">
+        <span class="input-group-addon" id="sizing-addon1">Title:</span>
+        <input type="text" 
+               class="form-control" 
+               placeholder="Enter title" 
+               aria-describedby="sizing-addon1" 
+               [(ngModel)]="post.title" 
+               required
+               ndModel
+               name="title">
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2 class="panel-title">Content:</h2>
+        </div>
+        <div class="panel-body">
+            <div ace-editor
+                [(text)]="post.content" 
+                [mode]="'markdown'" 
+                [theme]="'textmate'"
+                style="min-height: 300px; width:100%; overflow: auto;"
+                required>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <!-->test views below<-->
+  <div class="tab-pane fade" id="edit-markdown-preview">
+        <dg-view-markdown [content]="post.content" [title]="post.title"></dg-view-markdown>
+  </div>
+</div>
+  <button type="submit" class="btn btn-success" [disabled]="!f.valid || !isValid(post.content)">Post</button>
+</form>

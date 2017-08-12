@@ -1,6 +1,8 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <div class="panel-title retain-text"><h2>{{title}}</h2></div>
+    <div class="panel-title"><h2>{{title}}</h2></div>
   </div>
-  <div class="panel-body retain-text" markdown-to-html>{{content}}</div>
+  <div class="panel-body">
+    <markdown-to-html [data]="content"></markdown-to-html>
+  </div>
 </div>

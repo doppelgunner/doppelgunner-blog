@@ -23,7 +23,10 @@
         "../node_modules/prismjs/themes/prism-okaidia.css"
       ],
       "scripts": [
-        "../node_modules/marked/lib/marked.js"
+        "../node_modules/marked/lib/marked.js",
+        "../node_modules/ace-builds/src-min/ace.js",
+        "../node_modules/ace-builds/src-min/theme-textmate.js",
+        "../node_modules/ace-builds/src-min/mode-markdown.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
