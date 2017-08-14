@@ -4,6 +4,9 @@ The source code for my own blog
 ## Demo
 * link to demo: https://doppelgunner.github.io/doppelgunner-blog/
 
+### Devlog
+* youtube devlogs playlist: https://www.youtube.com/watch?v=5aHz15GLsEE&list=PLlRMSK1suXjOeste_oh5qt7VaPh-Zt5fq
+
 ## Tools (as of now)
 * angular 4
 * visual studio code
