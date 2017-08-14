@@ -1,8 +1,18 @@
+<!-- https://stackoverflow.com/questions/24368457/bootstrap-3-adding-controls-to-a-panel-heading/24368794 -->
+
 <div class="panel panel-default">
-  <div class="panel-heading">
-    <div class="panel-title"><h2>{{title}}</h2></div>
+    <div class="input-group">
+        <button *ngIf="editable" class="btn btn-default btn-lg" (click)="edit()"><i class="glyphicon glyphicon-edit"></i></button>
+        <button *ngIf="editable" class="btn btn-default btn-lg" (click)="delete()"><i class="glyphicon glyphicon-trash"></i></button>
+     </div>
+  <div class="panel-heading clearfix">
+    <div class="panel-title pull-left">
+      <h2>{{post.title}}</h2>
+      <h5>{{post.createdAt | date}}</h5>
+    </div>
   </div>
   <div class="panel-body">
-    <markdown-to-html [data]="content"></markdown-to-html>
+    <markdown-to-html [data]="post.content"></markdown-to-html>
+    <!-- <div [innerHTML]="post.content | MarkdownToHtml"></div> -->
   </div>
 </div>

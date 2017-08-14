@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, SimpleChange } from '@angular/core';
-import { TempService, CheckerService } from '../../../services';
+import { TempService, CheckerService, PostService } from '../../../services';
 import { Post } from '../../../models';
+import * as firebase from 'firebase';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'dg-edit-markdown',
@@ -8,17 +10,54 @@ import { Post } from '../../../models';
   styleUrls: ['./edit-markdown.component.css']
 })
 export class EditMarkdownComponent implements OnInit {
-  @Input() post = new Post("","");
-
-  constructor(private tempService: TempService, private checkerService: CheckerService) { }
+  @Input() post = new Post("","",null,null);
+  new: boolean = true;
+  private id: string = null;
+  
+  constructor(private tempService: TempService, 
+              private checkerService: CheckerService,
+              private postService: PostService,
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   //markdown-editor - https://github.com/lon-yang/ngx-markdown-editor
   //ace - https://www.npmjs.com/package/ng2-ace-editor
   ngOnInit() {
+    this.route.params.subscribe(
+      (params: any) => {
+        if (params.hasOwnProperty('id')) {
+          this.id = params['id'];
+          this.new = false;
+
+          let post = this.postService.getPost(this.id);
+          post.subscribe(
+            (snapshot) => {
+              this.post = snapshot;
+            }
+          );
+        }
+      }
+    );
   }
 
+  //on post form
   onSubmit() {
-    console.log(this.post);
+    this.post.createdAt = firebase.database.ServerValue.TIMESTAMP;
+    this.postService.addPost(this.post.clone());
+  }
+
+  onSave() {
+    this.post.lastUpdate = firebase.database.ServerValue.TIMESTAMP;
+    this.postService.updatePost(this.id, this.post);
+    this.navigateBack();
+  }
+
+  onCancel() {
+    this.navigateBack();
+  }
+
+  private navigateBack() {
+    this.router.navigate(['../']);
   }
 
   isValid(value: string): boolean {

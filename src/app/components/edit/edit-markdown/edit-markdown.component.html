@@ -15,7 +15,7 @@
   <li class="nav"><a href="#edit-markdown-preview" data-toggle="tab">Preview</a></li>
 </ul>
 
-<form (ngSubmit)="onSubmit()" #f="ngForm">
+<form #f="ngForm">
 <div class="tab-content">
   <!-->test views here<-->
   <div class="tab-pane fade in active" id="edit-markdown-edit">
@@ -40,8 +40,7 @@
                 [(text)]="post.content" 
                 [mode]="'markdown'" 
                 [theme]="'textmate'"
-                style="min-height: 300px; width:100%; overflow: auto;"
-                required>
+                style="min-height: 300px; width:100%; overflow: auto;">
             </div>
         </div>
     </div>
@@ -49,8 +48,13 @@
 
   <!-->test views below<-->
   <div class="tab-pane fade" id="edit-markdown-preview">
-        <dg-view-markdown [content]="post.content" [title]="post.title"></dg-view-markdown>
+        <dg-view-markdown [post]="post"></dg-view-markdown>
   </div>
 </div>
-  <button type="submit" class="btn btn-success" [disabled]="!f.valid || !isValid(post.content)">Post</button>
+  <button *ngIf="new" type="submit" class="btn btn-success" [disabled]="!f.valid || !isValid(post.content)" (click)="onSubmit()">
+      <span class="glyphicon glyphicon-ok-circle"></span> Post</button>
+  <button *ngIf="!new" type="submit" class="btn btn-success" [disabled]="!f.valid || !isValid(post.content)" (click)="onSave()">
+      <span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
+  <button type="submit" class="btn btn-default" (click)="onCancel()">
+      <span class="glyphicon glyphicon-remove-circle"></span> Cancel</button>     
 </form>

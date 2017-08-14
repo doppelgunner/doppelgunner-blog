@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Post } from '../../../models';
+import { PostService } from '../../../services';
+import { FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'dg-test-tab',
@@ -6,8 +9,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./test-tab.component.css']
 })
 export class TestTabComponent implements OnInit {
+  posts: FirebaseListObservable<Post[]>;
 
-  constructor() { }
+  constructor(private postService: PostService) {
+    this.posts = this.postService.getPosts();
+  }
 
   ngOnInit() {
   }

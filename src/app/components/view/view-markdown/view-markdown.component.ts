@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { TempService } from '../../../services';
+import { TempService, PostService } from '../../../services';
+import { Post } from '../../../models';
+import { FirebaseListObservable } from 'angularfire2/database';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'dg-view-markdown',
@@ -7,8 +10,10 @@ import { TempService } from '../../../services';
   styleUrls: ['./view-markdown.component.css']
 })
 export class ViewMarkdownComponent implements OnInit {
-  @Input() title: string = this.tempService.tempText.title().pre("view-markdown: ").getValue();
-  @Input() content: string = this.tempService.tempText.this()
+  @Input() editable = false;
+  @Input() post = new Post(
+    this.tempService.tempText.title().pre("view-markdown: ").getValue(),
+    this.tempService.tempText.this()
         .post("# heading1").newLine()
         .post("## heading2").newLine()
         .post("### heading3").newLine()
@@ -18,12 +23,26 @@ export class ViewMarkdownComponent implements OnInit {
         .post("```").newLine()
         .post("* list").newLine()
         .post("![ATOM](http://www.shreeharsha.me/img/icons/github.png 'Github logo')")
-        .getValue();
+        .getValue(),
+      null,null
+  );
+  @Input() key: any = null;
 
   //https://www.npmjs.com/package/ng2-markdown-to-html
-  constructor(private tempService: TempService) {}
+  constructor(private tempService: TempService, 
+              private postService: PostService,
+              private router: Router) {}
 
   ngOnInit() {
+
+  }
+
+  edit() {
+    this.router.navigate([this.key]);
+  }
+
+  delete() {
+    this.postService.removePost(this.key);
   }
 
 }
