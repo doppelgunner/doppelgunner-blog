@@ -2,6 +2,7 @@
   <li class="nav active"><a href="#test-views" data-toggle="tab">test-Views</a></li>
   <li class="nav"><a href="#test-edits" data-toggle="tab">test-Edits</a></li>
   <li class="nav"><a href="#test-blog-posts" data-toggle="tab">test-Blog posts</a></li>
+  <li class="nav"><a href="#test-login" data-toggle="tab">test-Login</a></li>
 </ul>
 <br>
 
@@ -19,8 +20,14 @@
     <dg-edit-markdown></dg-edit-markdown>
   </div>
 
-  <!-->test views below<-->
+  <!-->test blog-test below<-->
   <div class="tab-pane fade" id="test-blog-posts">
     <dg-view-markdown *ngFor="let post of posts | async; let i = index" [post]="post" [key]="post.$key" id="post_{{i}}" [editable]="true"></dg-view-markdown>
+    <dg-loading-spinner *ngIf="showSpinner"></dg-loading-spinner>
+  </div>
+
+  <!-->test login below<-->
+  <div class="tab-pane fade" id="test-login">
+    <dg-login></dg-login>
   </div>
 </div>

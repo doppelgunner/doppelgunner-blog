@@ -10,9 +10,11 @@ import { FirebaseListObservable } from 'angularfire2/database';
 })
 export class TestTabComponent implements OnInit {
   posts: FirebaseListObservable<Post[]>;
+  showSpinner: boolean = true;
 
   constructor(private postService: PostService) {
     this.posts = this.postService.getPosts();
+    this.posts.subscribe(() => this.showSpinner = false);
   }
 
   ngOnInit() {

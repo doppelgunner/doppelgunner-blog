@@ -12,6 +12,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class EditMarkdownComponent implements OnInit {
   @Input() post = new Post("","",null,null);
   new: boolean = true;
+  options: any = {
+    autoScrollEditorIntoView: true,
+    maxLines: 28,
+    showLineNumbers: false
+  };
   private id: string = null;
   
   constructor(private tempService: TempService, 

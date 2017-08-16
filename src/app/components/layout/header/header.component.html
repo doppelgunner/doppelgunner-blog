@@ -5,5 +5,8 @@
         <img class="dicon-logo" alt="Doppelgunner" src="assets/images/doppelgunner.ico">
       </a>
     </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li *ngIf="isAuth()"><a (click)="onLogout()" class="pointer">Logout</a></li>
+    </ul>
   </div>
 </div>

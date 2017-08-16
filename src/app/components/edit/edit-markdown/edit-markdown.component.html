@@ -40,7 +40,8 @@
                 [(text)]="post.content" 
                 [mode]="'markdown'" 
                 [theme]="'textmate'"
-                style="min-height: 300px; width:100%; overflow: auto;">
+                [options]="options"
+                style="min-height: 100px; width:100%; overflow: auto;">
             </div>
         </div>
     </div>
@@ -51,10 +52,10 @@
         <dg-view-markdown [post]="post"></dg-view-markdown>
   </div>
 </div>
-  <button *ngIf="new" type="submit" class="btn btn-success" [disabled]="!f.valid || !isValid(post.content)" (click)="onSubmit()">
+  <button *ngIf="new" type="button" class="btn btn-success" [disabled]="!f.valid || !isValid(post.content)" (click)="onSubmit()">
       <span class="glyphicon glyphicon-ok-circle"></span> Post</button>
-  <button *ngIf="!new" type="submit" class="btn btn-success" [disabled]="!f.valid || !isValid(post.content)" (click)="onSave()">
+  <button *ngIf="!new" type="button" class="btn btn-success" [disabled]="!f.valid || !isValid(post.content)" (click)="onSave()">
       <span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
-  <button type="submit" class="btn btn-default" (click)="onCancel()">
+  <button type="button" class="btn btn-default" (click)="onCancel()">
       <span class="glyphicon glyphicon-remove-circle"></span> Cancel</button>     
 </form>
