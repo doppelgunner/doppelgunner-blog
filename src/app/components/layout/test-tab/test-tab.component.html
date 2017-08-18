@@ -1,15 +1,16 @@
 <ul class="nav nav-tabs">
-  <li class="nav active"><a href="#test-views" data-toggle="tab">test-Views</a></li>
+  <li class="nav"><a href="#test-views" data-toggle="tab">test-Views</a></li>
   <li class="nav"><a href="#test-edits" data-toggle="tab">test-Edits</a></li>
-  <li class="nav"><a href="#test-blog-posts" data-toggle="tab">test-Blog posts</a></li>
+  <li class="nav active"><a href="#test-blog-posts" data-toggle="tab">test-Blog posts</a></li>
   <li class="nav"><a href="#test-login" data-toggle="tab">test-Login</a></li>
+  <li class="nav"><a href="#test-cards" data-toggle="tab">test-Cards</a></li>
 </ul>
 <br>
 
 <div class="tab-content">
 
   <!-->test views here<-->
-  <div class="tab-pane fade in active" id="test-views">
+  <div class="tab-pane fade" id="test-views">
     <dg-view-markdown></dg-view-markdown>
     <dg-view-html></dg-view-html>
     <dg-view-text></dg-view-text>
@@ -21,13 +22,28 @@
   </div>
 
   <!-->test blog-test below<-->
-  <div class="tab-pane fade" id="test-blog-posts">
-    <dg-view-markdown *ngFor="let post of posts | async; let i = index" [post]="post" [key]="post.$key" id="post_{{i}}" [editable]="true"></dg-view-markdown>
-    <dg-loading-spinner *ngIf="showSpinner"></dg-loading-spinner>
+  <div class="tab-pane fade in active" id="test-blog-posts">
+    <dg-view-markdown *ngFor="let post of posts | async; let i = index" [post]="post" [key]="post.$key" id="{{post.$key}}" [editable]="true"></dg-view-markdown>
+    <div infiniteScroll 
+         [infiniteScrollDistance]="2"
+         [infiniteScrollThrottle]="1500" 
+         (scrolled)="onScroll()"></div>
+    <dg-loading-spinner *ngIf="!finished"></dg-loading-spinner>
+    <div *ngIf="finished" class="alert alert-info" role="alert">
+      <strong>End of Posts!</strong>
+    </div>
   </div>
 
   <!-->test login below<-->
   <div class="tab-pane fade" id="test-login">
     <dg-login></dg-login>
   </div>
+
+  <div class="tab-pane fade" id="test-cards">
+    <!-- <dg-card *ngFor="let post of posts | async; let i = index" [post]="post" id="post_{{post.$key}}"></dg-card> -->
+    <div class="row">
+      <dg-card *ngFor="let post of posts | async" [post]="post"></dg-card>
+    </div>
+  </div>
 </div>
+

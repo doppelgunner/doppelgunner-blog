@@ -28,7 +28,8 @@ import { LoginComponent } from './components/user/login/login.component';
 
 import { TempService, CheckerService, PostService, AuthService } from './services';
 import { LoadingSpinnerComponent } from './components/ui/loading-spinner/loading-spinner.component';
-
+import { CardComponent } from './components/layout/card/card.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 firebase.initializeApp(environment.firebase);
 
@@ -45,6 +46,7 @@ firebase.initializeApp(environment.firebase);
     TimeAgoPipe,
     LoginComponent,
     LoadingSpinnerComponent,
+    CardComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,7 +58,8 @@ firebase.initializeApp(environment.firebase);
     AngularFireDatabaseModule,
     //MarkdownToHtmlModule,
     ROUTING,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    InfiniteScrollModule
   ],
   providers: [TempService, CheckerService, PostService, AuthService, FormBuilder],
   bootstrap: [AppComponent]

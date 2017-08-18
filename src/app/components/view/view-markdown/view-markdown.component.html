@@ -7,12 +7,13 @@
      </div>
   <div class="panel-heading clearfix">
     <div class="panel-title pull-left">
-      <h2>{{post.title}}</h2>
-      <h5>{{post.createdAt | date}}</h5>
+      <h2>{{post?.title}}</h2>
+      <h5>{{post?.createdAt | date}}</h5> 
+      <h5 *ngIf="post.lastUpdate">Last update: {{post?.lastUpdate | date}}</h5>
     </div>
   </div>
   <div class="panel-body">
-    <markdown-to-html [data]="post.content"></markdown-to-html>
+    <markdown-to-html [data]="post?.content"></markdown-to-html>
     <!-- <div [innerHTML]="post.content | MarkdownToHtml"></div> -->
   </div>
 </div>

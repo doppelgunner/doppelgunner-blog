@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class ViewMarkdownComponent implements OnInit {
   @Input() editable = false;
-  @Input() post = new Post(
+  @Input() post: any = new Post(
     this.tempService.tempText.title().pre("view-markdown: ").getValue(),
     this.tempService.tempText.this()
         .post("# heading1").newLine()
