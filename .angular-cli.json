@@ -20,13 +20,18 @@
       "prefix": "dg",
       "styles": [
         "styles.css",
-        "../node_modules/prismjs/themes/prism-okaidia.css"
+        "../node_modules/prismjs/themes/prism-okaidia.css",
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+        "../node_modules/material-design-icons/iconfont/material-icons.css"
       ],
       "scripts": [
         "../node_modules/marked/lib/marked.js",
         "../node_modules/ace-builds/src-min/ace.js",
         "../node_modules/ace-builds/src-min/theme-textmate.js",
-        "../node_modules/ace-builds/src-min/mode-markdown.js"
+        "../node_modules/ace-builds/src-min/mode-markdown.js",
+        "../node_modules/jquery/dist/jquery.min.js",
+        "../node_modules/popper.js/dist/umd/popper.min.js",
+        "../node_modules/bootstrap/dist/js/bootstrap.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

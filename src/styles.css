@@ -1,16 +1,39 @@
+:root {
+    --main-bg: #016d6c;
+    --main-bg-lighter: #7BA7A7;
+    --main-white: #fff;
+    --main-white-lighter: #ccc;
+    --main-black: #000;
+}
 
+.main-bg-lighter-color {
+    color: var(--main-bg-lighter);
+}
 
-.dicon-logo {
-    -webkit-border-radius:50px;
-    -moz-border-radius:50px;
-    border-radius:50px;
-    width:32px;
-    height:32px;
+.main-bg-bgcolor {
+    background-color: var(--main-bg);
+}
+
+.main-bg-lighter-bgcolor {
+    background-color: var(--main-bg-lighter);
+}
+
+/* 
+main colors
+    - bluegreen: #016d6c 
+    - white: #fff
+    - black: #000
+*/
+
+/* .dicon {
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
 }
 
 .dicon-anchor {
     padding: 10px;
-}
+} */
 
 .retain-text {
     white-space: pre-wrap;

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { TempService, PostService } from '../../../services';
+import { TempService, PostService, AuthService } from '../../../services';
 import { Post } from '../../../models';
 import { FirebaseListObservable } from 'angularfire2/database';
 import { Router } from '@angular/router';
@@ -31,18 +31,21 @@ export class ViewMarkdownComponent implements OnInit {
   //https://www.npmjs.com/package/ng2-markdown-to-html
   constructor(private tempService: TempService, 
               private postService: PostService,
-              private router: Router) {}
+              private router: Router,
+              private authService: AuthService) {}
 
   ngOnInit() {
-
   }
 
   edit() {
-    this.router.navigate([this.key]);
+    this.router.navigate([this.key, "edit"]);
   }
 
   delete() {
     this.postService.removePost(this.key);
   }
 
+  isAuth(): boolean {
+    return this.authService.isAuthenticated();
+  }
 }

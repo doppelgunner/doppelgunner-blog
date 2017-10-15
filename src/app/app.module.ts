@@ -30,6 +30,7 @@ import { TempService, CheckerService, PostService, AuthService } from './service
 import { LoadingSpinnerComponent } from './components/ui/loading-spinner/loading-spinner.component';
 import { CardComponent } from './components/layout/card/card.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { TooltipDirective } from './directives/tooltip.directive';
 
 firebase.initializeApp(environment.firebase);
 
@@ -47,6 +48,7 @@ firebase.initializeApp(environment.firebase);
     LoginComponent,
     LoadingSpinnerComponent,
     CardComponent,
+    TooltipDirective,
   ],
   imports: [
     BrowserModule,

@@ -1,11 +1,46 @@
-<div class="col-sm-6 col-md-4">
+
+<!--
+<div class="col-sm-6 <col-md-4></col-md-4>">
   <a href="#">
-    <div class="thumbnail card">
-      <img src="">
-      <div class="caption">
+    <div class="thumbnail row">
+      <img src="" class="col-sm-4 col-md-4">
+      <div class="caption col-sm-8 col-md-8">
         <h4>{{post.title}}</h4>
         <p>{{post.createdAt | date}}</p>
       </div>
     </div>
   </a>
 </div> 
+-->
+
+<!-- <a href="#">
+  <div class="panel panel-default col-md-6 col-md-offset-3">
+    <div class="panel-body">
+        <div class="media">
+          <div *ngIf="post.thumbnail" class="media-left">
+            <img class="media-object" src="http://blog.psychics.com/wp-content/uploads/2016/01/birds15-300x169.jpg" alt="...">
+          </div>
+          <div class="media-body">
+            <h3 class="media-heading">{{post.title}}</h3>
+            <h4>{{post.createdAt | date}}</h4>
+          </div>
+        </div>
+    </div>
+  </div>
+</a> -->
+
+<a href="#">
+  <div class="card">
+    <div class="card-body ">
+        <div class="media">
+          <div *ngIf="post.thumbnail" class="media-left">
+            <img class="media-object" src="http://blog.psychics.com/wp-content/uploads/2016/01/birds15-300x169.jpg" alt="...">
+          </div>
+          <div class="media-body">
+            <h3 class="mt-0">{{post.title}}</h3>
+            <h4>{{post.createdAt | date}}</h4>
+          </div>
+        </div>
+    </div>
+  </div>
+</a>

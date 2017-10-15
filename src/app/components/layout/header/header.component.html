@@ -1,4 +1,4 @@
-<div class="navbar navbar-default">
+<!-- <div class="navbar navbar-dark">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand dicon-anchor" href="#">
@@ -9,4 +9,19 @@
       <li *ngIf="isAuth()"><a (click)="onLogout()" class="pointer">Logout</a></li>
     </ul>
   </div>
-</div>
+</div> -->
+
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">
+    <img src="assets/images/doppelgunner.png" 
+         width="30" 
+         height="30" 
+         class="d-inline-block align-top rounded" 
+         alt="D">
+    oppelgunner
+  </a>
+  <ul class="navbar-nav mr-sm-0">
+    <!-- <li *ngIf="isAuth()" class="nav-item"><a (click)="onLogout()" class="nav-link pointer">Logout</a></li> -->
+    <li *ngIf="isAuth()" class="nav-item"><a (click)="onLogout()" class="nav-link pointer"><i class="material-icons">&#xE879;</i></a></li>
+  </ul>
+</nav>

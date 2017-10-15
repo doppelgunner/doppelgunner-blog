@@ -1,7 +1,15 @@
-.input-group { 
-    float: right;
+.card-title {
+    color: var(--main-white);
 }
 
-.title {
-    overflow: auto;
+.card-link .md-light { 
+    color: var(--main-white-lighter) 
+}
+
+.card-link:hover .md-light {
+    color: var(--main-white)
+}
+
+a.perm-link {
+    color: white;
 }

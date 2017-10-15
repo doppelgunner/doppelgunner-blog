@@ -1,4 +1,9 @@
-a:hover, a:active, a:focus {
+a:link, a:visited, a:hover, a:active, a:focus {
     text-decoration: none;
     color: black;
+}
+
+.media img {
+    width: 160px;
+    height: 90px;
 }

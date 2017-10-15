@@ -11,14 +11,14 @@
 -->
 
 <ul class="nav nav-tabs">
-  <li class="nav active"><a href="#edit-markdown-edit" data-toggle="tab">Edit</a></li>
-  <li class="nav"><a href="#edit-markdown-preview" data-toggle="tab">Preview</a></li>
+  <li class="nav-item"><a class="nav-link active" id="edit-markdown-edit-tab" href="#edit-markdown-edit" data-toggle="tab">Edit</a></li>
+  <li class="nav-item"><a class="nav-link" id="edit-markdown-preview-tab" href="#edit-markdown-preview" data-toggle="tab">Preview</a></li>
 </ul>
 
 <form #f="ngForm">
 <div class="tab-content">
   <!-->test views here<-->
-  <div class="tab-pane fade in active" id="edit-markdown-edit">
+  <div class="tab-pane fade show active" id="edit-markdown-edit">
     <div class="input-group input-group-lg">
         <span class="input-group-addon" id="sizing-addon1">Title:</span>
         <input type="text" 
