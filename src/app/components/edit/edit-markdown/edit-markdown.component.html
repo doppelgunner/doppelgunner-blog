@@ -9,53 +9,60 @@
     maxlength="500">
     </md-editor>
 -->
+<div class="card mt-5">
+    <div class="card-header">
+        <div class="btn-group float-right" >
+            <button *ngIf="new" type="button" class="btn btn-success pointer" [disabled]="!f.valid || !isValid(post.content)" (click)="onSubmit()" dgTooltip="Publish">
+                    <i class="material-icons">&#xE163;</i></button>
+            <button *ngIf="!new" type="button" class="btn btn-success pointer" [disabled]="!f.valid || !isValid(post.content)" (click)="onSave()" dgTooltip="Save">
+                    <i class="material-icons">&#xE161;</i></button>
+            <button type="button" class="btn btn-default pointer" (click)="onCancel()" dgTooltip="Cancel">
+                    <i class="material-icons">&#xE5C9;</i></button>     
+        </div> 
 
-<ul class="nav nav-tabs">
-  <li class="nav-item"><a class="nav-link active" id="edit-markdown-edit-tab" href="#edit-markdown-edit" data-toggle="tab">Edit</a></li>
-  <li class="nav-item"><a class="nav-link" id="edit-markdown-preview-tab" href="#edit-markdown-preview" data-toggle="tab">Preview</a></li>
-</ul>
 
-<form #f="ngForm">
-<div class="tab-content">
-  <!-->test views here<-->
-  <div class="tab-pane fade show active" id="edit-markdown-edit">
-    <div class="input-group input-group-lg">
-        <span class="input-group-addon" id="sizing-addon1">Title:</span>
-        <input type="text" 
-               class="form-control" 
-               placeholder="Enter title" 
-               aria-describedby="sizing-addon1" 
-               [(ngModel)]="post.title" 
-               required
-               ndModel
-               name="title">
+        <ul class="nav nav-pills" id="editPill">
+        <li class="nav-item"><a class="nav-link active" id="edit-markdown-edit-pill" href="#edit-markdown-edit" data-toggle="pill">Edit</a></li>
+        <li class="nav-item"><a class="nav-link" id="edit-markdown-preview-pill" href="#edit-markdown-preview" data-toggle="pill">Preview</a></li>
+        </ul>  
     </div>
 
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h2 class="panel-title">Content:</h2>
+    <form #f="ngForm">
+    <div class="tab-content">
+    <!-->test views here<-->
+    <div class="tab-pane fade show active" id="edit-markdown-edit">
+        <div class="input-group">
+            <span class="input-group-addon bg-dark text-white" id="sizing-addon1"><h5>Title</h5></span>
+            <input type="text" 
+                class="form-control" 
+                placeholder="Enter title" 
+                aria-describedby="sizing-addon1" 
+                [(ngModel)]="post.title" 
+                required
+                ndModel
+                name="title">
         </div>
-        <div class="panel-body">
-            <div ace-editor
-                [(text)]="post.content" 
-                [mode]="'markdown'" 
-                [theme]="'textmate'"
-                [options]="options"
-                style="min-height: 100px; width:100%; overflow: auto;">
+
+        <div class="card">
+            <div class="card-header bg-dark text-white">
+                <h5 class="card-title float-sm-left">Content</h5>
+            </div>
+            <div class="card-body">
+                <div ace-editor
+                    [(text)]="post.content" 
+                    [mode]="'markdown'" 
+                    [theme]="'textmate'"
+                    [options]="options"
+                    style="min-height: 100px; width:100%; overflow: auto;">
+                </div>
             </div>
         </div>
     </div>
-  </div>
 
-  <!-->test views below<-->
-  <div class="tab-pane fade" id="edit-markdown-preview">
-        <dg-view-markdown [post]="post"></dg-view-markdown>
-  </div>
+    <!-->test views below<-->
+    <div class="tab-pane fade" id="edit-markdown-preview">
+            <dg-view-markdown [post]="post"></dg-view-markdown>
+    </div>
+    </div> 
+    </form>
 </div>
-  <button *ngIf="new" type="button" class="btn btn-success" [disabled]="!f.valid || !isValid(post.content)" (click)="onSubmit()">
-      <span class="glyphicon glyphicon-ok-circle"></span> Post</button>
-  <button *ngIf="!new" type="button" class="btn btn-success" [disabled]="!f.valid || !isValid(post.content)" (click)="onSave()">
-      <span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
-  <button type="button" class="btn btn-default" (click)="onCancel()">
-      <span class="glyphicon glyphicon-remove-circle"></span> Cancel</button>     
-</form>

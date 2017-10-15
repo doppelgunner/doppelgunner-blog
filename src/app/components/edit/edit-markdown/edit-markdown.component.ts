@@ -54,6 +54,7 @@ export class EditMarkdownComponent implements OnInit {
   onSave() {
     this.post.lastUpdate = firebase.database.ServerValue.TIMESTAMP;
     this.postService.updatePost(this.id, this.post);
+    console.log(this.post);
     this.navigateBack();  
   }
 
