@@ -3,6 +3,7 @@ import { TempService, CheckerService, PostService } from '../../../services';
 import { Post } from '../../../models';
 import * as firebase from 'firebase';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'dg-edit-markdown',
@@ -23,7 +24,8 @@ export class EditMarkdownComponent implements OnInit {
               private checkerService: CheckerService,
               private postService: PostService,
               private route: ActivatedRoute,
-              private router: Router) { }
+              private router: Router,
+              private location: Location) { }
 
   //markdown-editor - https://github.com/lon-yang/ngx-markdown-editor
   //ace - https://www.npmjs.com/package/ng2-ace-editor
@@ -63,7 +65,8 @@ export class EditMarkdownComponent implements OnInit {
   }
 
   private navigateBack() {
-    this.router.navigate(['../']);
+    // this.router.navigate(['../']);
+    this.location.back();
   }
 
   isValid(value: string): boolean {
