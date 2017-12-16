@@ -7,7 +7,7 @@
           <a class="card-link pointer m-1" (click)="delete()" dgTooltip="Delete"><i class="material-icons md-light">&#xE872;</i></a>
        </div>
       <div class="float-sm-left">
-          <a class="perm-link" [routerLink]="key"><h2 class="card-title">{{post?.title}}</h2></a>
+          <a class="perm-link" [routerLink]="['/',key]"><h2 class="card-title">{{post?.title}}</h2></a>
           <h5>{{post?.createdAt | date}}</h5> 
           <h5 *ngIf="post.lastUpdate">Last update: {{post?.lastUpdate | date}}</h5>
       </div>

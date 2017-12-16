@@ -1,6 +1,6 @@
 import { RouterModule,Routes } from '@angular/router';
 import { 
-    TestTabComponent, EditMarkdownComponent,
+    TestTabComponent, EditMarkdownComponent, ViewMarkdownComponent,
     TestViewsComponent, TestCardsComponent, TestBlogPostsComponent, TestLoginComponent, TestEditsComponent
 } from './components';
 
@@ -13,7 +13,6 @@ const idChildRoutes = [
 const APP_ROUTES = [
     // {path: '', component: TestTabComponent, pathMatch: 'full'},
     {path: '', redirectTo: 'test', pathMatch: 'full'},
-    {path: ':id/edit', component: EditMarkdownComponent},
 
     // tests
     {path: 'test', component: TestTabComponent, 
@@ -26,6 +25,9 @@ const APP_ROUTES = [
             {path: 'test-cards', component: TestCardsComponent}
         ]
     },
+
+    {path: ':id/edit', component: EditMarkdownComponent},
+    {path: ':id', component: ViewMarkdownComponent},
 ];
 
 export const ROUTING = RouterModule.forRoot(APP_ROUTES);

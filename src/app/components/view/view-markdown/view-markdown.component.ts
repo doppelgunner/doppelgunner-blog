@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { TempService, PostService, AuthService } from '../../../services';
 import { Post } from '../../../models';
 import { FirebaseListObservable } from 'angularfire2/database';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'dg-view-markdown',
@@ -27,14 +27,35 @@ export class ViewMarkdownComponent implements OnInit {
       null,null
   );
   @Input() key: any = null;
+  private id: string = null;
 
   //https://www.npmjs.com/package/ng2-markdown-to-html
   constructor(private tempService: TempService, 
               private postService: PostService,
               private router: Router,
-              private authService: AuthService) {}
+              private authService: AuthService,
+              private route: ActivatedRoute) {}
 
   ngOnInit() {
+    this.route.params.subscribe(
+      (params: any) => {
+        if (params.hasOwnProperty('id')) {
+          this.id = params['id'];
+
+          let post = this.postService.getPost(this.id);
+          post.subscribe(
+            (snapshot) => {
+
+              //comment for production
+              if (snapshot) {
+                this.post = snapshot;
+              }
+              // this.post = snapshot; //uncomment for production
+            }
+          );
+        }
+      }
+    );
   }
 
   edit() {
