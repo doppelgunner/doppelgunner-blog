@@ -31,6 +31,11 @@ import { LoadingSpinnerComponent } from './components/ui/loading-spinner/loading
 import { CardComponent } from './components/layout/card/card.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { TooltipDirective } from './directives/tooltip.directive';
+import { TestViewsComponent } from './components/layout/test-tab/test-views/test-views.component';
+import { TestEditsComponent } from './components/layout/test-tab/test-edits/test-edits.component';
+import { TestBlogPostsComponent } from './components/layout/test-tab/test-blog-posts/test-blog-posts.component';
+import { TestLoginComponent } from './components/layout/test-tab/test-login/test-login.component';
+import { TestCardsComponent } from './components/layout/test-tab/test-cards/test-cards.component';
 
 firebase.initializeApp(environment.firebase);
 
@@ -49,6 +54,11 @@ firebase.initializeApp(environment.firebase);
     LoadingSpinnerComponent,
     CardComponent,
     TooltipDirective,
+    TestViewsComponent,
+    TestEditsComponent,
+    TestBlogPostsComponent,
+    TestLoginComponent,
+    TestCardsComponent,
   ],
   imports: [
     BrowserModule,

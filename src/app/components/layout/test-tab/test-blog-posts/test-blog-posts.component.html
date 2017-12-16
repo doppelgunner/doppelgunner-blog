@@ -1,0 +1,11 @@
+<div>
+  <dg-view-markdown *ngFor="let post of posts | async; let i = index" [post]="post" [key]="post.$key" id="{{post.$key}}" [editable]="true"></dg-view-markdown>
+  <div infiniteScroll 
+       [infiniteScrollDistance]="2"
+       [infiniteScrollThrottle]="1500" 
+       (scrolled)="onScroll()"></div>
+  <dg-loading-spinner *ngIf="!finished"></dg-loading-spinner>
+  <div *ngIf="finished" class="alert alert-dark" role="alert">
+    <i class="material-icons">&#xE88E;</i> <strong>No more posts!</strong>
+  </div>
+</div>

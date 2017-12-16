@@ -1,49 +1,12 @@
-<ul class="nav nav-tabs">
-  <li class="nav-item"><a class="nav-link" id="test-views-tab" href="#test-views" data-toggle="tab">test-Views</a></li>
-  <li class="nav-item"><a class="nav-link" id="test-edits-tab" href="#test-edits" data-toggle="tab">test-Edits</a></li>
-  <li class="nav-item"><a class="nav-link active" id="test-blog-posts-tab" href="#test-blog-posts" data-toggle="tab">test-Blog posts</a></li>
-  <li class="nav-item"><a class="nav-link" id="test-login-tab" href="#test-login" data-toggle="tab">test-Login</a></li>
-  <li class="nav-item"><a class="nav-link" id="test-cards-tab" href="#test-cards" data-toggle="tab">test-Cards</a></li>
-</ul>
-<br>
 
-<div class="tab-content">
-
-  <!-->test views here<-->
-  <div class="tab-pane fade" id="test-views">
-    <dg-view-markdown></dg-view-markdown>
-    <dg-view-html></dg-view-html>
-    <dg-view-text></dg-view-text>
-  </div>
-
-  <!-->test views below<-->
-  <div class="tab-pane fade" id="test-edits">
-    <dg-edit-markdown></dg-edit-markdown>
-  </div>
-
-  <!-->test blog-test below<-->
-  <div class="tab-pane fade show active" id="test-blog-posts">
-    <dg-view-markdown *ngFor="let post of posts | async; let i = index" [post]="post" [key]="post.$key" id="{{post.$key}}" [editable]="true"></dg-view-markdown>
-    <div infiniteScroll 
-         [infiniteScrollDistance]="2"
-         [infiniteScrollThrottle]="1500" 
-         (scrolled)="onScroll()"></div>
-    <dg-loading-spinner *ngIf="!finished"></dg-loading-spinner>
-    <div *ngIf="finished" class="alert alert-dark" role="alert">
-      <i class="material-icons">&#xE88E;</i> <strong>No more posts!</strong>
-    </div>
-  </div>
-
-  <!-->test login below<-->
-  <div class="tab-pane fade" id="test-login">
-    <dg-login></dg-login>
-  </div>
-
-  <div class="tab-pane fade" id="test-cards">
-    <!-- <dg-card *ngFor="let post of posts | async; let i = index" [post]="post" id="post_{{post.$key}}"></dg-card> -->
-    <div class="columns">
-      <dg-card *ngFor="let post of posts | async" [post]="post"></dg-card>
-    </div>
-  </div>
+<div class="test-tab">
+    <nav class="nav nav-pills flex-column flex-sm-row">
+        <a class="flex-sm-fill text-sm-center nav-link" [routerLinkActive]="['active']" routerLink="test-views">Test-Views</a>
+        <a class="flex-sm-fill text-sm-center nav-link" [routerLinkActive]="['active']" routerLink="test-edits">Test-Edits</a>
+        <a class="flex-sm-fill text-sm-center nav-link" [routerLinkActive]="['active']" routerLink="test-blog-posts">Test-Blog-Posts</a>
+        <a class="flex-sm-fill text-sm-center nav-link" [routerLinkActive]="['active']" routerLink="test-login">Test-Login</a>
+        <a class="flex-sm-fill text-sm-center nav-link" [routerLinkActive]="['active']" routerLink="test-cards">Test-Cards</a>
+    </nav>
 </div>
 
+<router-outlet></router-outlet>

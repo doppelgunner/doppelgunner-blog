@@ -1,0 +1,6 @@
+<div>
+  <!-- <dg-card *ngFor="let post of posts | async; let i = index" [post]="post" id="post_{{post.$key}}"></dg-card> -->
+  <div class="columns">
+    <dg-card *ngFor="let post of posts | async" [post]="post"></dg-card>
+  </div>
+</div>
